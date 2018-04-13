@@ -815,7 +815,7 @@ Handle<Value> sonoa(const Arguments& args) {
 
     uint32_t input_len = Buffer::Length(target);
 
-    sonoa_hash(input, output);
+    sonoa_hash(input, output, input_len);
 
     Buffer* buff = Buffer::New(output, 32);
     return scope.Close(buff->handle_);
