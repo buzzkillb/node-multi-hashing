@@ -7,7 +7,7 @@ extern "C" {
 
 #include <stdint.h>
 
-void sonoa_hash(const char* input, char* output, uint32_t len);
+void sonoa_hash(const char* input, char* output);
 
 #ifdef __cplusplus
 }
