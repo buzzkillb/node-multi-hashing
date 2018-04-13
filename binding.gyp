@@ -28,6 +28,7 @@
 		"whirlpoolx.c",
 		"zr5.c",
 		"tribus.c",
+		"sonoa.c",
 		"skunk.c",
 		"jha.c",
                 "fresh.c",
