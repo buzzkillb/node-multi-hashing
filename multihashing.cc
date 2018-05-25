@@ -36,6 +36,7 @@ extern "C" {
     #include "jha.h"
     #include "tribus.h"
     #include "sonoa.h"
+    #include "x14.h"
     #include "skunk.h"
     #include "hsr.h"
     #include "neoscrypt.h"
@@ -821,6 +822,27 @@ Handle<Value> sonoa(const Arguments& args) {
     return scope.Close(buff->handle_);
 }
 
+Handle<Value> x14(const Arguments& args) {
+    HandleScope scope;
+
+    if (args.Length() < 1)
+        return except("You must provide one argument.");
+
+    Local<Object> target = args[0]->ToObject();
+
+    if(!Buffer::HasInstance(target))
+        return except("Argument should be a buffer object.");
+
+    char * input = Buffer::Data(target);
+    char output[32];
+
+    uint32_t input_len = Buffer::Length(target);
+
+    x14_hash(input, output, input_len);
+
+    Buffer* buff = Buffer::New(output, 32);
+    return scope.Close(buff->handle_);
+}
 
 Handle<Value> skunk(const Arguments& args) {
     HandleScope scope;

@@ -29,6 +29,7 @@
 		"zr5.c",
 		"tribus.c",
 		"sonoa.c",
+		"x14.c",
 		"skunk.c",
 		"jha.c",
                 "fresh.c",
