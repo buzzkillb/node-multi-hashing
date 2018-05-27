@@ -24,7 +24,7 @@ void x14_hash(const char* input, char* output, uint32_t len)
 {
 
 	
-	   sph_blake512_context     ctx_blake;
+	sph_blake512_context     ctx_blake;
     sph_bmw512_context       ctx_bmw;
     sph_groestl512_context   ctx_groestl;
     sph_skein512_context     ctx_skein;
@@ -102,6 +102,6 @@ void x14_hash(const char* input, char* output, uint32_t len)
 
     memcpy(output, hashB, 32);
 		
-
+} 
 	
 
