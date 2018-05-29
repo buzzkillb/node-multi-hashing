@@ -989,7 +989,7 @@ void init(Handle<Object> exports) {
     exports->Set(String::NewSymbol("lyra2h"), FunctionTemplate::New(lyra2h)->GetFunction());
     exports->Set(String::NewSymbol("tribus"), FunctionTemplate::New(tribus)->GetFunction());
     exports->Set(String::NewSymbol("sonoa"), FunctionTemplate::New(sonoa)->GetFunction());
-	exports->Set(String::NewSymbol("x14"), FunctionTemplate::New(sonoa)->GetFunction());
+    exports->Set(String::NewSymbol("x14"), FunctionTemplate::New(x14)->GetFunction());
     exports->Set(String::NewSymbol("skunk"), FunctionTemplate::New(skunk)->GetFunction());
     exports->Set(String::NewSymbol("zr5"), FunctionTemplate::New(zr5)->GetFunction());
     exports->Set(String::NewSymbol("ziftr"), FunctionTemplate::New(zr5)->GetFunction());
