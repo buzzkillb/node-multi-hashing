@@ -19,7 +19,7 @@
 #include "sha3/sph_fugue.h"
 #include "sha3/sph_shabal.h"
 #include "sha3/sph_whirlpool.h"
-#include "openssl/sha.h"
+#include "sha3/sph_sha2.h"
 #include "sha3/sph_haval.h"
 
 void sonoa_hash(const char* input, char* output, uint32_t len)
