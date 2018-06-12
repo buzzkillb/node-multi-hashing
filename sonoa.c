@@ -46,7 +46,7 @@ void sonoa_hash(const char* input, char* output, uint32_t len)
     uint32_t hash[16];
 
     sph_blake512_init(&ctx_blake);
-    sph_blake512(&ctx_blake, input);
+    sph_blake512(&ctx_blake, input, len);
     sph_blake512_close(&ctx_blake, hash);
 
     sph_bmw512_init(&ctx_bmw);
