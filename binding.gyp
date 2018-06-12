@@ -62,7 +62,6 @@
 		"sha3/sph_gost.c",
 		"sha3/sph_sm3.c",
 		"sha3/sph_sha2.c",
-		"sha3/sph_haval.c",
                 "crypto/oaes_lib.c",
                 "crypto/c_keccak.c",
                 "crypto/c_groestl.c",
