@@ -29,6 +29,7 @@
 		"zr5.c",
 		"tribus.c",
 		"x16r.c",
+		"x16s.c",
 		"sonoa.c",
 		"x14.c",
 		"skunk.c",
