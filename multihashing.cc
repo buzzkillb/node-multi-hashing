@@ -41,6 +41,7 @@ extern "C" {
     #include "hsr.h"
     #include "x16r.h"
     #include "x16s.h"
+    #include "x17.h"
     #include "neoscrypt.h"
 
 }
@@ -979,6 +980,28 @@ Handle<Value> x16s(const Arguments& args) {
     return scope.Close(buff->handle_);
 }
 
+Handle<Value> x17(const Arguments& args) {
+    HandleScope scope;
+
+    if (args.Length() < 1)
+        return except("You must provide one argument.");
+
+    Local<Object> target = args[0]->ToObject();
+
+    if(!Buffer::HasInstance(target))
+        return except("Argument should be a buffer object.");
+
+    char * input = Buffer::Data(target);
+    char output[32];
+
+    uint32_t input_len = Buffer::Length(target);
+
+    x17_hash(input, output, input_len);
+
+    Buffer* buff = Buffer::New(output, 32);
+    return scope.Close(buff->handle_);
+}
+
 Handle<Value> neoscrypt(const Arguments& args) {
     HandleScope scope;
 
@@ -1043,6 +1066,7 @@ void init(Handle<Object> exports) {
     exports->Set(String::NewSymbol("hsr"), FunctionTemplate::New(hsr)->GetFunction());
     exports->Set(String::NewSymbol("x16r"), FunctionTemplate::New(hsr)->GetFunction());
     exports->Set(String::NewSymbol("x16s"), FunctionTemplate::New(hsr)->GetFunction());
+    exports->Set(String::NewSymbol("x17"), FunctionTemplate::New(hsr)->GetFunction());
     exports->Set(String::NewSymbol("neoscrypt"), FunctionTemplate::New(neoscrypt)->GetFunction());
 }
 
