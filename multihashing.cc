@@ -1064,9 +1064,9 @@ void init(Handle<Object> exports) {
     exports->Set(String::NewSymbol("ziftr"), FunctionTemplate::New(zr5)->GetFunction());
     exports->Set(String::NewSymbol("jha"), FunctionTemplate::New(jha)->GetFunction());
     exports->Set(String::NewSymbol("hsr"), FunctionTemplate::New(hsr)->GetFunction());
-    exports->Set(String::NewSymbol("x16r"), FunctionTemplate::New(hsr)->GetFunction());
-    exports->Set(String::NewSymbol("x16s"), FunctionTemplate::New(hsr)->GetFunction());
-    exports->Set(String::NewSymbol("x17"), FunctionTemplate::New(hsr)->GetFunction());
+    exports->Set(String::NewSymbol("x16r"), FunctionTemplate::New(x16r)->GetFunction());
+    exports->Set(String::NewSymbol("x16s"), FunctionTemplate::New(x16s)->GetFunction());
+    exports->Set(String::NewSymbol("x17"), FunctionTemplate::New(x17)->GetFunction());
     exports->Set(String::NewSymbol("neoscrypt"), FunctionTemplate::New(neoscrypt)->GetFunction());
 }
 
