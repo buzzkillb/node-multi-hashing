@@ -39,9 +39,6 @@ extern "C" {
     #include "x14.h"
     #include "skunk.h"
     #include "hsr.h"
-    #include "x16r.h"
-    #include "x16s.h"
-    #include "x17.h"
     #include "neoscrypt.h"
 
 }
@@ -936,72 +933,6 @@ Handle<Value> hsr(const Arguments& args) {
     return scope.Close(buff->handle_);
 }
 
-Handle<Value> x16r(const Arguments& args) {
-    HandleScope scope;
-
-    if (args.Length() < 1)
-        return except("You must provide one argument.");
-
-    Local<Object> target = args[0]->ToObject();
-
-    if(!Buffer::HasInstance(target))
-        return except("Argument should be a buffer object.");
-
-    char * input = Buffer::Data(target);
-    char output[32];
-
-    uint32_t input_len = Buffer::Length(target);
-
-    x16r_hash(input, output, input_len);
-
-    Buffer* buff = Buffer::New(output, 32);
-    return scope.Close(buff->handle_);
-}
-
-Handle<Value> x16s(const Arguments& args) {
-    HandleScope scope;
-
-    if (args.Length() < 1)
-        return except("You must provide one argument.");
-
-    Local<Object> target = args[0]->ToObject();
-
-    if(!Buffer::HasInstance(target))
-        return except("Argument should be a buffer object.");
-
-    char * input = Buffer::Data(target);
-    char output[32];
-
-    uint32_t input_len = Buffer::Length(target);
-
-    x16s_hash(input, output, input_len);
-
-    Buffer* buff = Buffer::New(output, 32);
-    return scope.Close(buff->handle_);
-}
-
-Handle<Value> x17(const Arguments& args) {
-    HandleScope scope;
-
-    if (args.Length() < 1)
-        return except("You must provide one argument.");
-
-    Local<Object> target = args[0]->ToObject();
-
-    if(!Buffer::HasInstance(target))
-        return except("Argument should be a buffer object.");
-
-    char * input = Buffer::Data(target);
-    char output[32];
-
-    uint32_t input_len = Buffer::Length(target);
-
-    x17_hash(input, output, input_len);
-
-    Buffer* buff = Buffer::New(output, 32);
-    return scope.Close(buff->handle_);
-}
-
 Handle<Value> neoscrypt(const Arguments& args) {
     HandleScope scope;
 
@@ -1064,9 +995,6 @@ void init(Handle<Object> exports) {
     exports->Set(String::NewSymbol("ziftr"), FunctionTemplate::New(zr5)->GetFunction());
     exports->Set(String::NewSymbol("jha"), FunctionTemplate::New(jha)->GetFunction());
     exports->Set(String::NewSymbol("hsr"), FunctionTemplate::New(hsr)->GetFunction());
-    exports->Set(String::NewSymbol("x16r"), FunctionTemplate::New(x16r)->GetFunction());
-    exports->Set(String::NewSymbol("x16s"), FunctionTemplate::New(x16s)->GetFunction());
-    exports->Set(String::NewSymbol("x17"), FunctionTemplate::New(x17)->GetFunction());
     exports->Set(String::NewSymbol("neoscrypt"), FunctionTemplate::New(neoscrypt)->GetFunction());
 }
 
